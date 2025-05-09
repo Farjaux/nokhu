@@ -82,11 +82,13 @@ const logout = async (_, __, { req, res, user }) => {
 
 const register = async (
   _,
-  { full_name, username, email, password },
+  { full_name, username, email, password, profile_picture },
   { req }
 ) => {
   try {
-    const existingEmail = await User.findOne({ where: { email } });
+    const existingEmail = await User.findOne({
+      where: { email: email.toLowerCase() },
+    });
     if (existingEmail) {
       throw new Error('User with this email already exists');
     }
@@ -108,9 +110,10 @@ const register = async (
       password_hash: hashedPassword,
       language_preference,
       country,
+      profile_picture,
     });
 
-    await Subscription.create({
+    const subscription = await Subscription.create({
       user_id: user.id,
     });
 
@@ -119,9 +122,10 @@ const register = async (
       full_name: user.full_name,
       username: user.username,
       email: user.email,
-      language: user.language_preference,
+      language_preference: user.language_preference,
       country: user.country,
       role: user.role,
+      profile_picture: user.profile_picture,
       subscription,
     };
   } catch (error) {

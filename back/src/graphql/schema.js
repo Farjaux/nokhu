@@ -56,7 +56,7 @@ const typeDefs = gql`
     gender: String
     country: String
     language_preference: String
-    profile_picture: String
+    profile_picture: Int
     cover_photo: String
     bio: String
     account_status: AccountStatus
@@ -251,6 +251,7 @@ const typeDefs = gql`
       password: String!
       language_preference: String
       country: String
+      profile_picture: Int
     ): User
     createVideo(
       title: String!
@@ -340,7 +341,7 @@ const typeDefs = gql`
     gender: String
     country: String
     language_preference: String
-    profile_picture: String
+    profile_picture: Int
     cover_photo: String
     bio: String
   }

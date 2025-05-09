@@ -65,7 +65,7 @@ const User = sequelize.define(
       type: DataTypes.STRING(10),
     },
     profile_picture: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.INTEGER,
     },
     cover_photo: {
       type: DataTypes.STRING,
