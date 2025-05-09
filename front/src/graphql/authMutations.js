@@ -60,6 +60,7 @@ export const REGISTER = gql`
     $password: String!
     $language_preference: String
     $country: String
+    $profile_picture: Int
   ) {
     register(
       full_name: $full_name
@@ -68,11 +69,13 @@ export const REGISTER = gql`
       password: $password
       language_preference: $language_preference
       country: $country
+      profile_picture: $profile_picture
     ) {
       id
       full_name
       username
       email
+      profile_picture
       language_preference
       country
       role

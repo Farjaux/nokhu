@@ -29,12 +29,22 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-black text-white relative z-50">
-        <div className="flex justify-between items-center p-3">
-          
+      <header className="text-white relative z-50">
+        <div className="flex justify-between items-center p-3">    
           <div className="flex items-center">
             <Link to="/">
-              <img src="/favicon.ico" alt="Logo" className="h-10 w-auto cursor-pointer" />
+              {/* Mobile: Show logo2.png */}
+              <img
+                src="/logo2.png"
+                alt="Logo"
+                className="block md:hidden h-10 w-auto cursor-pointer"
+              />
+              {/* Tablet & Desktop: Show logo.png */}
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="hidden md:block h-10 md:h-8 lg:h-10 w-auto cursor-pointer"
+              />
             </Link>
           </div>
 
@@ -55,7 +65,7 @@ const Header = () => {
             ) : (
               <button
                 onClick={openLoginPopup}
-                className="px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-500"
+                className="px-4 py-2 bg-[#0056d8] rounded-md hover:bg-[#0066FF]"
               >
                 Login
               </button>

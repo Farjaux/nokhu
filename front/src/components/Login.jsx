@@ -72,7 +72,9 @@ const LoginPopup = ({ show, onClose }) => {
       return;
     }
 
-    const success = await register(firstName, lastName, username, email, password);
+    const profile_picture = Math.floor(Math.random() * 5) + 1;
+
+    const success = await register(firstName, lastName, username, email, password, profile_picture);
     if (success) {
       resetForm();
       onClose();

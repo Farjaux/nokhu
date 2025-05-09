@@ -19,7 +19,7 @@ const VideoFeed = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen flex flex-col space-y-2">
+    <div className="min-h-screen flex flex-col space-y-2">
       {/* Category List */}
       <CategoryList 
         selectedParentCategory={selectedParentCategory} 

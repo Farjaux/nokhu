@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthProvider';
+import { ProfileAvatar } from './ProfileAvatar';
 
 const UserProfileDropdown = ({ showDropdown, toggleDropdown, openLoginPopup }) => {
   const dropdownRef = useRef(null);
@@ -24,12 +25,13 @@ const UserProfileDropdown = ({ showDropdown, toggleDropdown, openLoginPopup }) =
     };
   }, [toggleDropdown]);
 
+  const variant = Number(user?.profile_picture) || 1;;
+
   return (
     <div className="relative" ref={profileRef}>
-      <img
-        src={'/favicon.ico'}
-        alt="User"
-        className="h-10 w-10 rounded-full cursor-pointer"
+      <ProfileAvatar
+        variant={variant}
+        className="h-12 w-12 rounded-full object-cover cursor-pointer"
         onClick={() => toggleDropdown((prev) => !prev)}
       />
 

@@ -14,7 +14,7 @@ const GenreList = ({ parentCategory, selectedGenre, onGenreSelect }) => {
   const genres = data?.getCategory?.subcategories || [];
 
   return (
-    <div className="pt-1 p-3 bg-black">
+    <div className="pt-1 p-3">
       <div className="flex justify-center space-x-4">
         {/* "All" option always present */}
         <button

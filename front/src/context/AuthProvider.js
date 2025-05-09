@@ -108,12 +108,25 @@ export function AuthProvider({ children }) {
     }
   }, [logoutMutation, client]);
 
-  async function register(firstName, lastName, username, email, password) {
+  async function register(
+    firstName,
+    lastName,
+    username,
+    email,
+    password,
+    profile_picture
+  ) {
     try {
       console.log('🚀 Attempting registration...');
       const fullName = `${firstName} ${lastName}`;
       const { data } = await registerMutation({
-        variables: { full_name: fullName, username, email, password },
+        variables: {
+          full_name: fullName,
+          username,
+          email,
+          password,
+          profile_picture,
+        },
       });
 
       if (data?.register?.id) {

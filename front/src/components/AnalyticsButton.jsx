@@ -15,7 +15,7 @@ const AnalyticsButton = () => {
   return (
     <Link
       to="/analytics"
-      className="relative flex items-center justify-center w-10 h-10 bg-gray-700 hover:bg-gray-600 text-white rounded-full transition duration-300"
+      className="relative flex items-center justify-center w-10 h-10 bg-[#00d89d] hover:bg-[#00FFB9] text-white rounded-full transition duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

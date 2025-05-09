@@ -13,7 +13,7 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-black min-h-screen">
+      <div className="bg-[#002022] min-h-screen">
         <Header />
         <main>
           <Routes>

@@ -15,7 +15,7 @@ const CreateButton = () => {
   return (
     <Link
       to="/upload-video"
-      className="relative flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-500 text-white rounded-full transition duration-300"
+      className="relative flex items-center justify-center w-10 h-10 bg-[#0056d8] hover:bg-[#0066FF] text-white rounded-full transition duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

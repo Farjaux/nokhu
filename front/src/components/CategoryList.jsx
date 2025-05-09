@@ -9,7 +9,7 @@ const categories = [
 
 const CategoryList = ({ selectedParentCategory, onCategorySelect }) => {
   return (
-    <div className="bg-black text-white w-full flex flex-row items-center justify-center py-1 space-x-10">
+    <div className="text-white w-full flex flex-row items-center justify-center py-1 space-x-10">
       {categories.map((category) => (
         <button
           key={category.id}

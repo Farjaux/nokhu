@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useQuery, useMutation, gql } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { TRACK_VIDEO_ANALYTICS } from '../graphql/videoAnalyticsQueries';
 import {GET_PLAYLIST} from '../graphql/videoQueries'
 
 const CLOUDFRONT_URL = process.env.REACT_APP_CLOUDFRONT_URL;
-
-// GraphQL query to retrieve videos
 
 
 export default function VideoPlaylist({ currentVideoId }) {
@@ -13,6 +11,7 @@ export default function VideoPlaylist({ currentVideoId }) {
   const { loading, error, data } = useQuery(GET_PLAYLIST);
   const [trackAnalytics] = useMutation(TRACK_VIDEO_ANALYTICS);
   const impressionRefs = useRef(new Set()); // Tracks which videos have been recorded
+  const videoRefs = useRef([]); 
 
   // Store videos in local state
   const [playlist, setPlaylist] = useState([]);
@@ -45,16 +44,13 @@ export default function VideoPlaylist({ currentVideoId }) {
             }
           });
         },
-        { threshold: 0.5 } // Trigger when at least 50% of the video is visible
+        { threshold: 0.5 }
       );
   
-      // Observe all video thumbnails
-      playlist.forEach((video) => {
-        const element = document.querySelector(`[data-video-id="${video.id}"]`);
-        if (element) observer.observe(element);
-      });
+      // Attach observer to all playlist video elements
+      videoRefs.current.forEach((el) => el && observer.observe(el));
   
-      return () => observer.disconnect();
+      return () => observer.disconnect(); // Cleanup
     }, [playlist, trackAnalytics]);
 
   // Handle loading & error states
