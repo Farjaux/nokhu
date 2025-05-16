@@ -48,7 +48,7 @@ function VideoUpload() {
   useEffect(() => {
     if (!data || !parentCategory) return;
 
-    const selectedParentCategory = data.getAllCategories.find((cat) => cat.name === parentCategory);
+    const selectedParentCategory = data.getAllCategories.find((cat) => cat.id === parentCategory);
     setSecondLevelCategories(selectedParentCategory?.subcategories || []);
     setSecondCategory(""); // Reset second-level selection
     setThirdLevelCategories([]);
@@ -184,7 +184,7 @@ function VideoUpload() {
             />
           </div>
 
-                    {/* Parent Category (Locked) */}
+                    {/* Parent Category */}
                     <div>
             <label className="block text-gray-400 text-sm font-semibold">Main Category</label>
             <select
@@ -195,7 +195,7 @@ function VideoUpload() {
             >
               <option value="">Select a main category</option>
               {data?.getAllCategories.map((category) => (
-                <option key={category.id} value={category.name}>{category.name}</option>
+                <option key={category.id} value={category.id}>{category.name}</option>
               ))}
             </select>
           </div>
